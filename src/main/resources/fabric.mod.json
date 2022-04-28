@@ -22,6 +22,7 @@
       "org.abos.fabricmc.xpmagic.XpMagic"
     ]
   },
+  "accessWidener": "xp-magic.accesswidener",
 
   "depends": {
     "fabricloader": ">=0.14.0",
