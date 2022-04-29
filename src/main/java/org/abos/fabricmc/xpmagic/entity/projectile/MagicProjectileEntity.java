@@ -52,13 +52,13 @@ public class MagicProjectileEntity extends PersistentProjectileEntity {
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
         if (!world.isClient) {
-            this.discard();
+            //this.discard();
         }
     }
 
     @Override
     protected ItemStack asItemStack() {
-        return ItemStack.EMPTY;
+        return new ItemStack(Items.ARROW);
     }
 
 }
