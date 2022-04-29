@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import org.abos.fabricmc.xpmagic.XpMagic;
 import org.abos.fabricmc.xpmagic.entity.projectile.MagicProjectileEntities;
 import org.abos.fabricmc.xpmagic.entity.projectile.MagicProjectileEntity;
 
@@ -27,9 +28,11 @@ public class ProjectileSpellItem extends SpellItem {
         ItemStack itemStack = user.getStackInHand(hand); // creates a new ItemStack instance of the user's itemStack in-hand
         MagicProjectileEntities projectile;
         try {
-            projectile = MagicProjectileEntities.valueOf(Registry.ITEM.getId(this).getPath().toUpperCase(Locale.ROOT));
+            String id = Registry.ITEM.getId(this).getPath();
+            projectile = MagicProjectileEntities.valueOf(id.substring(0,id.lastIndexOf('_')).toUpperCase(Locale.ROOT));
         }
         catch (IllegalArgumentException ex) {
+            XpMagic.LOGGER.warn("Couldn't find entity for projectile spell!", ex);
             return TypedActionResult.pass(itemStack);
         }
         if (!user.getAbilities().creativeMode && user.experienceLevel < projectile.requiredXp()) {
