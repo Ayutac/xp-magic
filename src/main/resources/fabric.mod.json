@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "org.abos.fabricmc.xpmagic.XpMagic"
+    ],
+    "client": [
+      "org.abos.fabricmc.xpmagic.client.XpMagicClient"
     ]
   },
   "accessWidener": "xp-magic.accesswidener",
