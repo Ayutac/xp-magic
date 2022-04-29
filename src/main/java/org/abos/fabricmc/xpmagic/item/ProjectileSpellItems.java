@@ -16,7 +16,7 @@ public enum ProjectileSpellItems implements ItemConvertible {
     private Item item;
 
     ProjectileSpellItems() {
-        item = Registry.register(Registry.ITEM, new Identifier(XpMagic.MOD_ID, name().toLowerCase(Locale.ROOT)),
+        item = Registry.register(Registry.ITEM, new Identifier(XpMagic.MOD_ID, name().toLowerCase(Locale.ROOT) + "_spell"),
                 new ProjectileSpellItem(new Item.Settings().group(ItemGroup.MISC).maxCount(1)));
     }
 
